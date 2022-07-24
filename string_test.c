@@ -64,7 +64,7 @@ int index_kmp(char *str1, char *str2,int pos)
         printf("匹配不成功！\n");
     }
 }
-
+/* KMP算法关键：求next数组 */
 void get_next(char *str, int *next)
 {
     int i = 0;
