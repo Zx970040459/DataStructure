@@ -84,3 +84,22 @@ void get_next(char *str, int *next)
         }
     }
 }
+/* next数组的求解方法 */ 
+int Get_Next(char *t,int next[])
+{
+    next[1] = 0;
+    int i = 1; //i为next数组的索引，也是当前主串正在匹配字符的位置
+    int j = 0;
+    int length = strlen(t);
+    while(i <= length)
+    {
+        if(j == 0 || t[i] == t[j])
+        {
+            next[++i] = ++j;
+        }
+        else
+        {
+            j = next[j];
+        }
+    }
+}
