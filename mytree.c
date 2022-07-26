@@ -6,10 +6,9 @@ int main()
     int level = 1;
     BiTree T = NULL;
     createBiTree(&T);
-
+    printf("test!\n");
     PreOrderTravers(T,level);
-
-    
+ 
     return 0;
 }
 
@@ -17,7 +16,7 @@ int main()
 void createBiTree(BiTree *T)
 {
     char c;
-    printf("请输入要存储的数据！\n");
+    //Aprintf("请输入要存储的数据！\n");
     scanf("%c",&c);
     if(' ' == c)
     {
@@ -39,12 +38,29 @@ void visit(char c,int level)
 /* 遍历二叉树 */
 void PreOrderTravers(BiTree T,int level)
 {
-    printf("遍历函数测试！\n");
-    if(T != NULL)
+    //printf("遍历函数测试！\n");
+    if(T)
     {
         printf("data:%c",T->data);
         visit(T->data,level);
         PreOrderTravers(T->lchild,level+1);
         PreOrderTravers(T->rchild,level+1);
+    }
+}
+/* 线索二叉树 */
+/* 创建一棵二叉树，约定用户遵照前序遍历的方式
+    输入数据
+ */
+void creatBithrTree(BiThrTree *T)
+{
+    char c;
+    scanf("%c",&c);
+    if(' ' == c)
+    {
+        *T = NULL;
+    }
+    else
+    {
+        
     }
 }

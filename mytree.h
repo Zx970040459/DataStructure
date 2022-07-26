@@ -43,9 +43,21 @@ typedef struct BitNode
     ElemType data;
     struct BitNode *lchild,*rchild;
 }BitNode,*BiTree;
-
+/* 线索二叉树的结构 */
+/* 线索存储标志位
+    Link(0)表示指向左右孩子的指针
+    Thread(1)表示指向前驱后继的线索
+ */
+typedef enum{Link,Thread}PointerTag;
+typedef struct BihrNode
+{
+    ElemType data;
+    struct BihrNode *lchild,*rchild;
+    PointerTag ltag;
+    PointerTag rtag;
+}BithrNode,*BiThrTree;
 void createBiTree(BiTree *T);
 void PreOrderTravers(BiTree T,int level);
 void visit(char c,int level);
-
+void creatBithrTree(BiThrTree *T);
 #endif
