@@ -84,7 +84,7 @@ void get_next(char *str, int *next)
         }
     }
 }
-/* next数组的求解方法 */ 
+/* next数组的求解方法:该方法无法使用，暂时不清楚原因20220726 */ 
 int Get_Next(char *t,int next[])
 {
     next[1] = 0;
