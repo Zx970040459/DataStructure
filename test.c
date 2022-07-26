@@ -5,10 +5,14 @@
 /* 用于临时测试算法与数据结构用 */
 int Index_String(char *str1,char *str2);
 int Get_Next(char *str,int *next);
+int get_next(char *str,int *next);
+
 
 int main()
 {
-	Index_String("MynameIsZhangxu","Zhangxu");
+	char *str1 = "MynamesasaasdasdasdIs Zhandgxu dfdfdfsfasfasdfafasdfadsdfsdf";
+	printf("The string1 lenght is->:%d\n",(int)strlen(str1));
+	Index_String(str1,"Zhangxu");
 	return 0;
 }
 
@@ -16,25 +20,25 @@ int main()
 /* next数组的求解 */
 int Index_String(char *str1,char *str2)
 {
-	int i =1,j = 1;
+	int i =0,j = 0;
 	int next[255];
 	Get_Next(str2,next);
-	int length1 = strlen(str1);
-	int length2 = strlen(str2);
+	int length1 = (int)strlen(str1);
+	int length2 = (int)strlen(str2);
 	
-	while(i<= length1 || j <= length2)
+	while(i< length1 && j < length2)
 	{
 		if(j == 0 || str1[i] == str2[j])
 		{
-			++i;
-			++j;
+			i++;
+			j++;
 		}
 		else
 		{
 			j = next[j];
 		}
 	}//while
-	if(j > length2)
+	if(j >= length2)
 	{
 		printf("字符串匹配！位置序号为->  %d\n",i - length2);
 		return 1;
@@ -50,7 +54,7 @@ int Get_Next(char *str,int *next)
 	int i = 0;
 	int j = 0;
 	next[1] = 0;
-	int length = strlen(str);
+	int length = (int)strlen(str);
 
 	while(i < length)
 	{
@@ -66,3 +70,4 @@ int Get_Next(char *str,int *next)
 	}
 	return 1;
 }
+
