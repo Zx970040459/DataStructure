@@ -10,7 +10,7 @@ int get_next(char *str,int *next);
 
 int main()
 {
-	char *str1 = "MynamesasaasdasdasdIs Zhandgxu dfdfdfsfasfasdfafasdfadsdfsdf";
+	char *str1 = "MynamesasaasdasdasdIs Zhangxu dfdfdfsfasfasdfafasdfadsdfsdf";
 	printf("The string1 lenght is->:%d\n",(int)strlen(str1));
 	Index_String(str1,"Zhangxu");
 	return 0;
