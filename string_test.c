@@ -1,4 +1,5 @@
 #include "string_test.h"
+int get_next(char *str,int *next);
 /* 暴力BF匹配算法 */
 int main()
 {
@@ -65,25 +66,6 @@ int index_kmp(char *str1, char *str2,int pos)
     }
 }
 /* KMP算法关键：求next数组 */
-void get_next(char *str, int *next)
-{
-    int i = 0;
-    int j = 0;
-    next[1] = 0;
-    int length = strlen(str);
-    while (i< length)
-    {
-        if(j == 0 || str[i] == str[j])
-        {
-            i++;
-            j++;
-        }
-        else
-        {
-            j = next[j];
-        }
-    }
-}
 /* next数组的求解方法:该方法无法使用，暂时不清楚原因20220726 */ 
 int Get_Next(char *t,int next[])
 {
@@ -102,4 +84,25 @@ int Get_Next(char *t,int next[])
             j = next[j];
         }
     }
+}
+
+/* 推荐记忆方法 */
+int get_next(char *str,int *next)
+{
+	int i = 1,j = 0;
+	next[0] = -1;
+	next[1] = 0;
+	int length = strlen(str);
+	while (i <= length)
+	{
+		if(j == 0 || str[i] == str[j])
+		{
+			next[++i] = ++j;
+		}
+		else
+		{
+			j = next[j];
+		}
+	}
+	return 1;
 }

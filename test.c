@@ -22,10 +22,14 @@ int Index_String(char *str1,char *str2)
 {
 	int i =0,j = 0;
 	int next[255];
-	Get_Next(str2,next);
+	get_next(str2,next);
+
 	int length1 = (int)strlen(str1);
 	int length2 = (int)strlen(str2);
-	
+	for(int a = 0; a<length2 ;a++)
+	{
+		printf("Next[%d] = %d\n",a,next[a]);
+	}
 	while(i< length1 && j < length2)
 	{
 		if(j == 0 || str1[i] == str2[j])
@@ -70,4 +74,23 @@ int Get_Next(char *str,int *next)
 	}
 	return 1;
 }
-
+/* 推荐记忆方法 */
+int get_next(char *str,int *next)
+{
+	int i = 1,j = 0;
+	next[0] = -1;
+	next[1] = 0;
+	int length = strlen(str);
+	while (i <= length)
+	{
+		if(j == 0 || str[i] == str[j])
+		{
+			next[++i] = ++j;
+		}
+		else
+		{
+			j = next[j];
+		}
+	}
+	return 1;
+}
