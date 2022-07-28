@@ -55,7 +55,7 @@ _Bool isValid(char *string)
 }
 int main()
 {
-    char *str ="{}{}()[][][][][][]'[][][]]";
+    char *str ="{}{}()[][][][][][][][][]]";
     if(isValid(str) == true)printf("括号匹配！\n");
     else printf("括号不匹配！\n");
     return 0;
