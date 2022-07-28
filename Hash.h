@@ -1,32 +1,33 @@
-#ifndef __HASH__
-#define __HASH__
+#ifndef __HASH_TEST__
+#define __HASH_TEST__
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define FALSE 0
-#define TRUE 1
-typedef int STATUS;
-#define HASH_SIZE 100
-#define NULLKEY -6753453
-/* 哈希表结构 */
-typedef struct 
+#define DEFAULT_SIZE 16
+/* 定义结点类型结构体 */
+typedef struct Node
 {
-    int *elem; //数据元素的基地址，用于动态分配内存
-    int count;
-}HashTable; 
+    struct Node *next; 
+    int key;//键值
+    void *data; //数据域
+}ListNode;
+/* 定义两个类型重定义 */
+typedef ListNode *List;
+typedef ListNode *Element;
 
-//定义哈希表和基本数据节点
-typedef struct _NODE
+/* 定义哈希表类型结构体 */
+typedef struct _HashTable
 {
-    int data;
-    struct _NODE* next;
-}NODE;
-//创建哈希表
-typedef struct _HASH_TABLE
-{
-    NODE* value[10];
-}HASH_TABLE;
-
+    int TableSize;
+    List *Thelists;
+}HashTable;
+/* 创建哈希函数 */
+int Hash(int key,int TableSize);
 /* 初始化哈希表 */
-int Init_HashTalbe(HashTable *H);
+HashTable *InitHashTable(int TableSize);
+/* 插入数据到哈希表 */
+void Insert_HashTable(HashTable *hashtable,int key,void *value);
+/* 从哈希表中查找元素 */
+Element Find(HashTable *HashTable,int key);
+
 #endif
