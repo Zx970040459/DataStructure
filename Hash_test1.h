@@ -23,4 +23,11 @@ typedef struct _HashTable
 }HashTable;
 /* 创建哈希函数 */
 int Hash(int key,int TableSize);
+/* 初始化哈希表 */
+HashTable *InitHashTable(int TableSize);
+/* 插入数据到哈希表 */
+void Insert_HashTable(HashTable *hashtable,int key,void *value);
+/* 从哈希表中查找元素 */
+Element Find(HashTable *HashTable,int key);
+
 #endif
