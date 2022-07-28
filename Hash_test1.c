@@ -25,7 +25,7 @@ HashTable *InitHashTable(int TableSize)
     }
     /* ⑤初始化哈希表的容量为用户输入容量 */
     hTable->TableSize = TableSize;
-    /* ⑥为哈希桶分配内存空间 */
+    /* ⑥为哈希桶分配内存空间：哈希桶保存的是索引的数组 */
     hTable->Thelists = (List*)malloc(sizeof(List)*TableSize);
     /* ⑦防御机制，如果分类内存失败，则打印log，并释放可能分配的异常内存 */
     if(NULL == hTable->Thelists)
@@ -51,7 +51,7 @@ HashTable *InitHashTable(int TableSize)
         }
     }//for
     /* ⑨返回初始化成功的哈希表的内存地址 */
-    return hTable; //返回哈希表地址
+    return hTable; 
 }
 
 int main()
