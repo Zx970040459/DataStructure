@@ -34,7 +34,7 @@
 1. HASH_FIND_INT(hashtable,&key,tmp);
     入口参数1：hashtable:哈希表；
     入口参数2：&key:**要查找的键值的地址**；
-    入口参数3：tmo:哈希表结构的结构体指针，**保存查找到的键值地址**；
+    入口参数3：tmp:哈希表结构的结构体指针，如果找到键值，该值非空；
 
 
 >自定义查找接口函数的例程如下：
@@ -86,7 +86,7 @@ void Hash_Insert(int ikey,int ival)
           //循环遍历输入的nums数组
           for (int i = 0; i < numsSize; i++)
           {
-              struct hashTable* it = find(target - nums[i]);
+              struct hashTable* it = Hash_Find(target - nums[i]);
               if (it != NULL) 
               {
                   int* ret = malloc(sizeof(int) * 2);
@@ -94,13 +94,13 @@ void Hash_Insert(int ikey,int ival)
                   *returnSize = 2;
                   return ret;//返回结果
               }//if
-              insert(nums[i], i); //插入的两个参数：数组中的元素，数组的下标
+              Hash_Insert(nums[i], i); //两个参数：数组中的元素，数组的下标
           }//for
           *returnSize = 0;
           return NULL;
       }
   ```
-## uthash库的使用流程
+## uthash库的使用流程-待完善补充
 1. 定义结构体
    ```c
    #include "uthash.h"
@@ -232,3 +232,4 @@ void Hash_Insert(int ikey,int ival)
         HASH_SORT(users, id_sort);
     }
     ```
+
