@@ -12,30 +12,30 @@ uthash库地址：https://github.com/troydhanson/uthash
  */
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "uthash.h"
 /* 方法①：暴力求解法 */
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
-int* twoSum(int* nums, int numsSize, int target, int* returnSize){
-    int a,b;//定义两个变量，用于求和的两个变量
-    int *result = NULL;//初始化返回值指针
-    *returnSize = 2; //初始化返回数组容量
-    for(a = 0;a<numsSize-1;a++)
-    {
-        for(b = a+1;b<numsSize;b++)
-        {
-            if(nums[a]+nums[b] == target)
-            {
-                result = (int*)malloc(sizeof(int)*2);
-                result[0] = a;
-                result[1] = b;
-                return result;
-            }
-        }
-    }
-    return result;
-}
+// int* twoSum(int* nums, int numsSize, int target, int* returnSize){
+//     int a,b;//定义两个变量，用于求和的两个变量
+//     int *result = NULL;//初始化返回值指针
+//     *returnSize = 2; //初始化返回数组容量
+//     for(a = 0;a<numsSize-1;a++)
+//     {
+//         for(b = a+1;b<numsSize;b++)
+//         {
+//             if(nums[a]+nums[b] == target)
+//             {
+//                 result = (int*)malloc(sizeof(int)*2);
+//                 result[0] = a;
+//                 result[1] = b;
+//                 return result;
+//             }
+//         }
+//     }
+//     return result;
+// }
 /* 方法2：哈希表 */
 struct hashTable {
     int key;
@@ -62,11 +62,14 @@ void insert(int ikey, int ival) {
     }
 }
 
-int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
+int* twoSum(int* nums, int numsSize, int target, int* returnSize) 
+{
     hashtable = NULL;
-    for (int i = 0; i < numsSize; i++) {
+    for (int i = 0; i < numsSize; i++)
+     {
         struct hashTable* it = find(target - nums[i]);
-        if (it != NULL) {
+        if (it != NULL) 
+        {
             int* ret = malloc(sizeof(int) * 2);
             ret[0] = it->val, ret[1] = i;
             *returnSize = 2;
@@ -80,5 +83,8 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
 
 int main()
 {    
+    int nums[6] = {1,2,3,4,5,6};
+    int* returnsize = NULL;
+    int ret = *twoSum(&nums[6],6,5,returnsize);
     return 0;
 }
