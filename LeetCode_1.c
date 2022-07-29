@@ -17,25 +17,25 @@ uthash库地址：https://github.com/troydhanson/uthash
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
-// int* twoSum(int* nums, int numsSize, int target, int* returnSize){
-//     int a,b;//定义两个变量，用于求和的两个变量
-//     int *result = NULL;//初始化返回值指针
-//     *returnSize = 2; //初始化返回数组容量
-//     for(a = 0;a<numsSize-1;a++)
-//     {
-//         for(b = a+1;b<numsSize;b++)
-//         {
-//             if(nums[a]+nums[b] == target)
-//             {
-//                 result = (int*)malloc(sizeof(int)*2);
-//                 result[0] = a;
-//                 result[1] = b;
-//                 return result;
-//             }
-//         }
-//     }
-//     return result;
-// }
+int* twoSum1(int* nums, int numsSize, int target, int* returnSize){
+    int a,b;//定义两个变量，用于求和的两个变量
+    int *result = NULL;//初始化返回值指针
+    *returnSize = 2; //初始化返回数组容量
+    for(a = 0;a<numsSize-1;a++)
+    {
+        for(b = a+1;b<numsSize;b++)
+        {
+            if(nums[a]+nums[b] == target)
+            {
+                result = (int*)malloc(sizeof(int)*2);
+                result[0] = a;
+                result[1] = b;
+                return result;
+            }
+        }
+    }
+    return result;
+}
 /* 方法2：哈希表 */
 struct hashTable {
     int key;
