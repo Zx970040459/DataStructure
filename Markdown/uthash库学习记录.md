@@ -1,9 +1,17 @@
 # uthash 库学习记录--应用篇
 
-## uthash库是什么：
+## 一、uthash库是什么：
 1. *uthash* 是C的比较优秀的开源代码，它实现了常见的hash操作函数，例如查找、插入、删除等。该套开源代码采用宏的方式实现hash函数的相关功能，支持C语言的任意数据结构作为key值（可以是自定义的struct或基本数据类型）;
 
-## uthash 库的使用场景
+   > uthash应用文档（英文版）：
+   >
+   > https://troydhanson.github.io/uthash/
+   >
+   > uthash下载地址：
+   >
+   > https://github.com/troydhanson/uthash
+
+## 二、uthash 库的使用场景
 1. 添加/替换（add/replace)
 2. 查找(find)
 3. 删除(delete)
@@ -11,8 +19,8 @@
 5. 迭代器(iterate)
 6. 排序(sort)
 
-## uthash库常用接口详解
-### 一. 使用接口前的准备工作
+## 三、uthash库常用接口详解
+### 1. 使用接口前的准备工作
 
 > 使用接口之前，需要定义一个哈希表
 
@@ -20,42 +28,52 @@
 /* 定义哈希表结构体 */
  struct hashTable
  {
-     int key;
-     int val;
-     UT_hash_handle hh;
+     int key;//键值
+     int val;//数据
+     UT_hash_handle hh;//Uthash库句柄，必须定义
  };
 
  /* 定义一个哈希表 */
  struct hashTable *My_hashtable = NULL;
 ```
 
-### 二. 哈希表查找接口
+### 2. 哈希表查找接口
 
-1. HASH_FIND_INT(hashtable,&key,tmp);
-    入口参数1：hashtable:哈希表；
-    入口参数2：&key:**要查找的键值的地址**；
-    入口参数3：tmp:哈希表结构的结构体指针，如果找到键值，该值非空；
+#### 2-1 查找int型变量
+
+```c
+HASH_FIND_INT(hashtable,&key,tmp);
+```
+
+入口参数1：hashtable：哈希表；
+入口参数2：**&key：要查找的键值的地址**；
+入口参数3：tmp：哈希表结构的结构体指针，如果找到键值，该值非空，输出的指针；
 
 
->自定义查找接口函数的例程如下：
+>自定义**【查找】**接口函数的例程如下：
 ```c
 /* 创建一个哈希表查找接口函数 */
 struct hashTable *Hash_Find(int ikey)
 {
     struct hashTable *tmp;
     HASH_FIND_INT(My_hashtable,&ikey,tmp);
-    return tmp;
+    return tmp;//返回地址
 }
 ```
 
-### 三. 哈希表插入接口
+### 3. 哈希表插入接口
 
-1. HASH_ADD_INT(hashtable,key,tmp);
-    入口参数1：hashtable:哈希表
-    入口参数2：key:要插入的键值
-    入口参数3：tmp:哈希表结构的结构体指针
+#### 3-1 插入int型变量
 
->自定义插入接口函数例程：
+```c
+HASH_ADD_INT(hashtable,key,tmp);
+```
+
+入口参数1：hashtable:哈希表
+入口参数2：key:要插入的键值
+入口参数3：tmp:哈希表结构的结构体指针
+
+>自定义**【插入】**接口函数例程：
 ```c
 /* 创建一个哈希表插入键值对接口函数 */
 void Hash_Insert(int ikey,int ival)
@@ -75,12 +93,98 @@ void Hash_Insert(int ikey,int ival)
 }
 ```
 
-## uthash库的典型应用举例：
+### 4. 哈希表删除接口
+
+#### 4-1 删除int型变量
+
+```c
+HASH_DELETE(hh,head,delptr) ;
+```
+
+​	入口参数1：hh：
+
+​	入口参数2：head：
+
+​	入口参数3：delptr:
+
+> 自定义【删除】接口函数例程：         
+>
+> ```c
+> void delete_user(struct my_struct *user) 
+> {
+>     HASH_DEL(users, user);  /* user: pointer to deletee */
+>     free(user);             /* optional; it's up to you! */
+> }
+> ```
+
+
+
+## 四、uthash库的典型应用举例：
+
 > [LeetCode 第一题：求两个数的和问题求解;来源：力扣（LeetCode）](https://leetcode.cn/problems/two-sum)
+>
+> **题目内容**：给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。
+>
+> 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
+>
+> 你可以按任意顺序返回答案。
+>
+> 示例 1：
+>
+> 输入：nums = [2,7,11,15], target = 9
+> 输出：[0,1]
+> 解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
+> 示例 2：
+>
+> 输入：nums = [3,2,4], target = 6
+> 输出：[1,2]
+> 示例 3：
+>
+> 输入：nums = [3,3], target = 6
+> 输出：[0,1]
+>
+> 来源：力扣（LeetCode）
+> 链接：https://leetcode.cn/problems/two-sum
 
   ```c
-  int* twoSum(int* nums, int numsSize, int target, int*returnSize) 
+  /* ①引用头文件 */
+  #include "uthash.h"
+  /* ②定义哈希表结构体 */
+   struct hashTable
+   {
+       int key;
+       int val;
+       UT_hash_handle hh;
+   };
+  
+  /* ③定义一个哈希表 */
+   struct hashTable *My_hashtable = NULL;
+  /* ④创建一个哈希表【查找】接口函数 */
+  struct hashTable *Hash_Find(int ikey)
+  {
+      struct hashTable *tmp;
+      HASH_FIND_INT(My_hashtable,&ikey,tmp);
+      return tmp;
+  }
+  /* ⑤创建一个哈希表【插入】键值对接口函数 */
+  void Hash_Insert(int ikey,int ival)
+  {
+      struct hashTable *it = Hash_Find(ikey);
+      if(it == NULL)
       {
+          struct hashTable *tmp = (struct hashTable*)malloc(sizeof(struct hashTable));
+          tmp->key = ikey;
+          tmp->val = ival;
+          HASH_ADD_INT(My_hashtable,key,tmp);
+      }
+      else
+      {
+          it->val = ival;
+      }
+  }
+  /* ⑥求和函数 */
+  int* twoSum(int* nums, int numsSize, int target, int*returnSize) 
+  {
           //初始化自定义哈希表结构体指向空
           hashtable = NULL;
           //循环遍历输入的nums数组
@@ -98,7 +202,7 @@ void Hash_Insert(int ikey,int ival)
           }//for
           *returnSize = 0;
           return NULL;
-      }
+  }
   ```
 ## uthash库的使用流程-待完善补充
 1. 定义结构体
