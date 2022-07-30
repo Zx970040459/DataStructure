@@ -62,9 +62,8 @@ void insert(int ikey, int ival) {
     }
 }
 
-int* twoSum(int* nums, int numsSize, int target, int* returnSize) 
+int* twoSum(int* nums, int numsSize, int target) 
 {
-    hashtable = NULL;
     for (int i = 0; i < numsSize; i++)
      {
         struct hashTable* it = find(target - nums[i]);
@@ -72,19 +71,19 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize)
         {
             int* ret = malloc(sizeof(int) * 2);
             ret[0] = it->val, ret[1] = i;
-            *returnSize = 2;
+            // *returnSize = 2; //leatcode中解除注释可以通过
             return ret;
         }
         insert(nums[i], i);
     }
-    *returnSize = 0;
+    // *returnSize = 0;//leatcode中解除注释可以通过
     return NULL;
 }
 
 int main()
 {    
-    int nums[6] = {1,2,3,4,5,6};
-    int* returnsize = NULL;
-    int ret = *twoSum(&nums[6],6,5,returnsize);
+    int nums[] = {1,2,3,4,5};
+    int *ret = twoSum(nums,5,9);
+    printf("数组下标为：[%d,%d]\n",ret[0],ret[1]);
     return 0;
 }
