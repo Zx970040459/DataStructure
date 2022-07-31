@@ -57,9 +57,29 @@ void test5()
     else
     printf("未找到换行符！\n");
 }
+void test6()
+{
+    int a[10];
+    memset(a,-1,sizeof(a));
+    for(int i=0;i<10;i++)
+    {
+        printf("i = %d\t",i);
+        printf("a = %d\n",a[i]);
+    }
+}
+void test7()
+{
+    char a[10];
+    memset(a,'1',sizeof(a));
+    for(int i=0;i<10;i++)
+    {
+        printf("i = %d\t",i);
+        printf("i = %c\n",a[i]);
+    }
+}
 int main()
 {
-    test5();
+    test7();
     return 0;
 }
 

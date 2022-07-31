@@ -474,3 +474,73 @@ char *fgets(char * restrict str, int size, FILE * restrict stream);
 char *gets_s(char *str,int size);
 ```
 
+### 4. 内存管理函数
+
+####  ***4-1. memset()：***
+
+> **函数名**：memset()
+>
+> **函数功能**：将指针变量 s 所指向的前 n 字节的[内存](https://so.csdn.net/so/search?q=内存&spm=1001.2101.3001.7020)单元用一个“整数” c 替换，注意 c 是 int 型。s 是 void* 型的指针变量，所以它可以为任何类型的数据进行初始化
+>
+> ```c
+> void *memset(void *b, int c, size_t len);
+> ```
+>
+> **入口参数：**
+>
+> | *b   | 要填充的内存地址 |
+> | ---- | ---------------- |
+> | c    | 要填充的值       |
+> | len  | 填充值的长度     |
+>
+> **返回值：**
+>
+> | 返回b的地址； |
+> | ------------- |
+>
+> **应用举例：**
+>
+> ```c
+> int a[10];
+> memset(a,-1,sizeof(a));
+> for(int i=0;i<10;i++)
+> {
+>     printf("i = %d\t",i);
+> 		printf("a = %d\n",a[i]);
+> }
+> /**输出结果为：
+> i = 0   a = -1
+> i = 1   a = -1
+> i = 2   a = -1
+> i = 3   a = -1
+> i = 4   a = -1
+> i = 5   a = -1
+> i = 6   a = -1
+> i = 7   a = -1
+> i = 8   a = -1
+> i = 9   a = -1
+> **/
+> char a[10];
+> memset(a,'1',sizeof(a));
+> for(int i=0;i<10;i++)
+> {
+>   	printf("i = %d\t",i);
+>   	printf("i = %c\n",a[i]);
+> }/*输出结果为：
+> i = 0   i = 1
+> i = 1   i = 1
+> i = 2   i = 1
+> i = 3   i = 1
+> i = 4   i = 1
+> i = 5   i = 1
+> i = 6   i = 1
+> i = 7   i = 1
+> i = 8   i = 1
+> i = 9   i = 1
+> */
+> ```
+>
+> **注意：**该函数出自库：string.h
+>
+> memset函数是按照字节进行逐个赋值，如果是对int型数组进行赋值，需要注意，因为int型变量在32位系统中占4个字节；
+
