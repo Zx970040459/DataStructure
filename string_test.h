@@ -15,6 +15,5 @@ typedef struct
 /* 字符串暴力匹配算法测试 */
 int Index(char *str1,char *str2);
 int index_kmp(char *str1, char *str2,int pos);
-int get_next(char *str, int *next);
-int Get_Next(char *t,int next[]); //CSDN获取next数组函数
+void get_next(char s[],int next[]);
 #endif

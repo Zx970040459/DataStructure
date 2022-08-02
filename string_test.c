@@ -1,13 +1,6 @@
 #include "string_test.h"
-int get_next(char *str,int *next);
-/* 暴力BF匹配算法 */
-int main()
-{
-    //printf("the pos is:%d\n",Index("a","caa")); 
-    index_kmp("abacc","acc",1);
 
-    return 0;
-}
+/* 暴力BF匹配算法 */
 /* BF算法 */
 int Index(char *str1,char *str2)
 {
@@ -35,74 +28,55 @@ int Index(char *str1,char *str2)
 }
 
 /* KMP算法 */
-int index_kmp(char *str1, char *str2,int pos)
-{
-    int i = pos;
-    int j = 1;
-    int next[255];
-    get_next(str2,next);
-    int length1 = strlen(str1);
-    int length2 = strlen(str2);
-
-    while(i <= length1 || j <= length2)
+void get_next(char s[],int next[])
+{	
+	int len=0;
+    int i=0;
+    int j=-1;
+    next[0]=-1;
+    len=strlen(s);
+    while(i<len-1)
     {
-        if(j == 0 || str1[i] == str2[j])
+        if(j==-1||s[i]==s[j])
+        {
+            i++;
+            j++;
+			next[i]=j;
+        }
+        else
+        {
+            j=next[j];
+        }
+    }
+}
+
+int strStr(char * haystack, char * needle){
+    int i=0;
+    int j=0;
+    int len1=strlen(haystack);
+    int len2=strlen(needle);
+    int *next = (int*)malloc(sizeof(int)*len2);
+    get_next(needle,next);
+    while(i<len1 && j<len2)
+    {
+        if(j==-1 || haystack[i]==needle[j])
         {
             i++;
             j++;
         }
         else
         {
-            j = next[j];
+            j=next[j];
         }
     }
-    if(j > length2)
-    {
-        printf("匹配成功！位置为：%d\n",i-length2);
-    }
+    if(j>=len2)
+        return i-len2;
     else
-    {
-        printf("匹配不成功！\n");
-    }
+        return -1;
 }
-/* KMP算法关键：求next数组 */
-/* next数组的求解方法:该方法无法使用，暂时不清楚原因20220726 */ 
-int Get_Next(char *t,int next[])
+int main()
 {
-    next[1] = 0;
-    int i = 1; //i为next数组的索引，也是当前主串正在匹配字符的位置
-    int j = 0;
-    int length = strlen(t);
-    while(i <= length)
-    {
-        if(j == 0 || t[i] == t[j])
-        {
-            next[++i] = ++j;
-        }
-        else
-        {
-            j = next[j];
-        }
-    }
-}
+    index_kmp("hello","df",0);
 
-/* 推荐记忆方法 */
-int get_next(char *str,int *next)
-{
-	int i = 1,j = 0;
-	next[0] = -1;
-	next[1] = 0;
-	int length = strlen(str);
-	while (i <= length)
-	{
-		if(j == 0 || str[i] == str[j])
-		{
-			next[++i] = ++j;
-		}
-		else
-		{
-			j = next[j];
-		}
-	}
-	return 1;
+    return 0;
 }
