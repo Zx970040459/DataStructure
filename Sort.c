@@ -4,7 +4,18 @@
     2、选择排序
     3、插入排序
  */
-/* 冒泡排序算法实现 */
+
+/* 链表的冒泡排序实现 */
+typedef struct Node
+{
+    struct Node *next;
+    int data;
+}ListNode;
+void add(ListNode *head,int data)
+{
+    ListNode *p,*L;
+}
+/* 数组冒泡排序算法实现 */
 void Bubble(int a[],int len)
 {
     int tmp = 0;
