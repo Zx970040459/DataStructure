@@ -198,7 +198,7 @@
 
 #### ***strncmp()：***
 
-> **函数名：strncmp()
+> **函数名**：strncmp()
 >
 > **函数功能：**比较两个字符串指定长度的大小；
 >
@@ -255,9 +255,9 @@
 
 #### ***strcpy()：***
 
-> **函数名：strcpy()
+> **函数名**：strcpy()
 >
-> **函数功能：字符串赋值
+> **函数功能**：字符串赋值
 >
 > ```c
 > char	*strcpy(char *__dst, const char *__src);
@@ -317,6 +317,21 @@
 > ```
 >
 > **注意：**
+>
+> strcpy函数自定义：
+>
+> ```c
+> char *mystrcpy(char *str1,char *str2)
+> {
+>   	int i = 0;
+>   	if(!(str1 && str2))
+>       return;
+>   	while(str1[i++] = *str2++);
+>   	return str1;
+> }
+> ```
+>
+> 
 
 #### ***sprintf()：***
 

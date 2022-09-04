@@ -74,9 +74,30 @@ int strStr(char * haystack, char * needle){
     else
         return -1;
 }
+/* 反转字符串 */
+void ReverseString(char *str)
+{
+    int length = strlen(str);
+    int start = 0;
+    int end = length -1;
+    char temp;//临时交换区
+    while(start < end)
+    {
+        temp = str[start];
+        str[start] = str[end];
+        str[end] = temp;
+        start++;
+        end--;
+    }
+}
+void test_reverse(void){
+    char str[] = "nimenhao";
+    ReverseString(str);
+    puts(str);
+}
 int main()
 {
-    index_kmp("hello","df",0);
+    test_reverse ();
 
     return 0;
 }

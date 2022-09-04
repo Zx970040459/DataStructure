@@ -1,0 +1,63 @@
+Date : 2022-08-12 11:54:44
+Directory : /Users/zhangxu/Desktop/DataStructure_Test
+Total : 34 files,  5081 codes, 577 comments, 530 blanks, all 6188 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| C        |         20 |      2,143 |        313 |        158 |      2,614 |
+| C++      |         10 |      1,645 |        264 |        238 |      2,147 |
+| Markdown |          4 |      1,293 |          0 |        134 |      1,427 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                   |         34 |      5,081 |        577 |        530 |      6,188 |
+| LeetCode                                                            |          8 |        349 |         62 |         22 |        433 |
+| Markdown                                                            |          4 |      1,293 |          0 |        134 |      1,427 |
+| Uthash                                                              |          6 |      2,419 |        342 |        307 |      3,068 |
++---------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                            | language | code       | comment    | blank      | total      |
++---------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /Users/zhangxu/Desktop/DataStructure_Test/Bit_Control.c             | C        |         21 |          1 |          2 |         24 |
+| /Users/zhangxu/Desktop/DataStructure_Test/Hash.c                    | C        |        127 |         30 |          8 |        165 |
+| /Users/zhangxu/Desktop/DataStructure_Test/Hash.h                    | C++      |         24 |          7 |          2 |         33 |
+| /Users/zhangxu/Desktop/DataStructure_Test/LeetCode/LeetCode_01.c    | C        |         65 |         19 |          5 |         89 |
+| /Users/zhangxu/Desktop/DataStructure_Test/LeetCode/LeetCode_02.c    | C        |         49 |         10 |          1 |         60 |
+| /Users/zhangxu/Desktop/DataStructure_Test/LeetCode/LeetCode_03.c    | C        |         29 |          2 |          1 |         32 |
+| /Users/zhangxu/Desktop/DataStructure_Test/LeetCode/LeetCode_19.c    | C        |         55 |         12 |          5 |         72 |
+| /Users/zhangxu/Desktop/DataStructure_Test/LeetCode/LeetCode_20.c    | C        |         58 |          4 |          2 |         64 |
+| /Users/zhangxu/Desktop/DataStructure_Test/LeetCode/LeetCode_21.c    | C        |         31 |          5 |          2 |         38 |
+| /Users/zhangxu/Desktop/DataStructure_Test/LeetCode/LeetCode_704.c   | C        |         34 |          0 |          2 |         36 |
+| /Users/zhangxu/Desktop/DataStructure_Test/LeetCode/YingShiMianShi.c | C        |         28 |         10 |          4 |         42 |
+| /Users/zhangxu/Desktop/DataStructure_Test/Markdown/C语言函数学习记录.md     | Markdown |        512 |          0 |         50 |        562 |
+| /Users/zhangxu/Desktop/DataStructure_Test/Markdown/LeetCode刷题笔记.md  | Markdown |          1 |          0 |          2 |          3 |
+| /Users/zhangxu/Desktop/DataStructure_Test/Markdown/uthash库学习记录.md   | Markdown |        296 |          0 |         44 |        340 |
+| /Users/zhangxu/Desktop/DataStructure_Test/Markdown/算法学习笔记.md        | Markdown |        484 |          0 |         38 |        522 |
+| /Users/zhangxu/Desktop/DataStructure_Test/Sort.c                    | C        |        119 |         12 |          3 |        134 |
+| /Users/zhangxu/Desktop/DataStructure_Test/Uthash/utarray.h          | C++      |        192 |         25 |         32 |        249 |
+| /Users/zhangxu/Desktop/DataStructure_Test/Uthash/uthash.h           | C        |        926 |        123 |         90 |      1,139 |
+| /Users/zhangxu/Desktop/DataStructure_Test/Uthash/utlist.h           | C++      |        889 |         79 |        106 |      1,074 |
+| /Users/zhangxu/Desktop/DataStructure_Test/Uthash/utringbuffer.h     | C++      |         69 |         24 |         16 |        109 |
+| /Users/zhangxu/Desktop/DataStructure_Test/Uthash/utstack.h          | C++      |         27 |         49 |         13 |         89 |
+| /Users/zhangxu/Desktop/DataStructure_Test/Uthash/utstring.h         | C++      |        316 |         42 |         50 |        408 |
+| /Users/zhangxu/Desktop/DataStructure_Test/heap.c                    | C        |         51 |          4 |          0 |         55 |
+| /Users/zhangxu/Desktop/DataStructure_Test/mytree.c                  | C        |         52 |          9 |          5 |         66 |
+| /Users/zhangxu/Desktop/DataStructure_Test/mytree.h                  | C++      |         46 |         10 |          7 |         63 |
+| /Users/zhangxu/Desktop/DataStructure_Test/queue.c                   | C        |         61 |          6 |          7 |         74 |
+| /Users/zhangxu/Desktop/DataStructure_Test/queue.h                   | C++      |         26 |          7 |          6 |         39 |
+| /Users/zhangxu/Desktop/DataStructure_Test/stack.c                   | C        |        209 |         56 |         11 |        276 |
+| /Users/zhangxu/Desktop/DataStructure_Test/stack.h                   | C++      |         41 |         19 |          4 |         64 |
+| /Users/zhangxu/Desktop/DataStructure_Test/string_test.c             | C        |         94 |          5 |          4 |        103 |
+| /Users/zhangxu/Desktop/DataStructure_Test/string_test.h             | C++      |         15 |          2 |          2 |         19 |
+| /Users/zhangxu/Desktop/DataStructure_Test/tempCodeRunnerFile.c      | C        |          1 |          0 |          0 |          1 |
+| /Users/zhangxu/Desktop/DataStructure_Test/test.c                    | C        |         53 |          2 |          3 |         58 |
+| /Users/zhangxu/Desktop/DataStructure_Test/字符串函数操作测试文件.c             | C        |         80 |          3 |          3 |         86 |
+| Total                                                               |          |      5,081 |        577 |        530 |      6,188 |
++---------------------------------------------------------------------+----------+------------+------------+------------+------------+
